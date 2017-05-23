@@ -93,7 +93,7 @@ class Dialog(QtGui.QWidget):
             with open(apath+'multi.ini', 'wt') as configfile:
                 config.write(configfile)
             configfile.close()
-            infodialog('Creado archivo '+apath+'multi.ini')
+            infodialog('Creating file '+apath+'multi.ini.')
 
         config = ConfigParser.ConfigParser()
         configfile=open(apath+'multi.ini')
@@ -158,14 +158,13 @@ def selectionchange():
                 config.write(configfile)
         configfile.close()
         init_gpib()                
-  #      config.close();        
-    
+   
 def query_dis(cadena):
     global inst, timer
     try:            
         return inst.query(cadena)
     except:
-        errordialog("Device not answer.")
+        errordialog("Not answer from device.")
         timer.stop()          
         #exit()
         
@@ -174,7 +173,7 @@ def write_dis(cadena):
     try:            
         inst.write(cadena)
     except:
-        errordialog("Device not answer.")
+        errordialog("Not answer from device.")
        # exit()
         
 def errordialog(texto):
